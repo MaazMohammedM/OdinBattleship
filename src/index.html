@@ -1,17 +1,77 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Odin Battleship</title>
+    <title>Battleship</title>
   </head>
   <body>
+
+    <!-- ── START SCREEN ─────────────────────────────────────── -->
     <div id="start-screen">
+      <h1>BATTLESHIP</h1>
+      <p>Sink the enemy fleet before they sink yours.</p>
       <button id="start-btn">Play Game</button>
     </div>
-    <div id="game-screen" style="display: none">
-      <div id="player-board"></div>
-      <div id="enemy-board"></div>
+
+    <!-- ── PLACEMENT SCREEN ─────────────────────────────────── -->
+    <div id="placement-screen" style="display:none">
+      <h2>Place Your Ships</h2>
+
+      <div id="placement-layout">
+        <div id="placement-sidebar">
+          <p id="current-ship-name">Placing: Carrier (5)</p>
+          <button id="direction-btn">↔ Horizontal</button>
+          <p class="sidebar-label">Ships remaining:</p>
+          <ul id="ship-queue"></ul>
+          <p id="placement-msg"></p>
+        </div>
+
+        <div id="placement-grid-wrap">
+          <div id="placement-grid" class="board"></div>
+        </div>
+      </div>
     </div>
+
+    <!-- ── GAME SCREEN ───────────────────────────────────────── -->
+    <div id="game-screen" style="display:none">
+      <p id="status">Your turn!</p>
+
+      <!-- Scoreboard -->
+      <div id="scoreboard">
+        <div class="score-card score-card--enemy">
+          <span class="score-label">Enemy Sunk</span>
+          <span class="score-num" id="enemy-sunk-count">0</span>
+          <span class="score-total">/ 5</span>
+        </div>
+        <div class="score-divider">VS</div>
+        <div class="score-card score-card--player">
+          <span class="score-label">Your Losses</span>
+          <span class="score-num" id="player-sunk-count">0</span>
+          <span class="score-total">/ 5</span>
+        </div>
+      </div>
+
+      <div id="boards-wrap">
+        <div class="board-section">
+          <h3>Your Fleet</h3>
+          <div id="player-board" class="board"></div>
+        </div>
+
+        <div class="board-section">
+          <h3>Enemy Waters</h3>
+          <div id="enemy-board" class="board"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── GAME OVER OVERLAY ─────────────────────────────────── -->
+    <div id="gameover-overlay" style="display:none">
+      <div id="gameover-box">
+        <h2 id="gameover-msg"></h2>
+        <button id="play-again-btn">Play Again</button>
+      </div>
+    </div>
+
   </body>
 </html>
